@@ -56,7 +56,7 @@ final class SuffixData {
     }
     
     private static func suffixArray(for text: String) -> [Substring] {
-        let separators = CharacterSet.whitespaces.union(.punctuationCharacters)
+        let separators = CharacterSet.whitespacesAndNewlines.union(.punctuationCharacters)
         let words = text.components(separatedBy: separators).filter { !$0.isEmpty }
         
         return words.reduce(into: []) { partialResult, word in
