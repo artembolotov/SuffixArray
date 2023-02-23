@@ -14,11 +14,9 @@ struct EnterTextScreen: View {
     
     var body: some View {
         NavigationView {
-            GeometryReader { _ in
-                LegacyTextView(text: $text, isFirstResponder: $isFirstResponder) { textView in
-                    textView.font = .systemFont(ofSize: UIFont.labelFontSize)
-                    textView.contentInset = .init(top: 10, left: 10, bottom: 10, right: 10)
-                }
+            LegacyTextView(text: $text, isFirstResponder: $isFirstResponder) { textView in
+                textView.font = .systemFont(ofSize: UIFont.labelFontSize)
+                textView.textContainerInset = .init(top: 10, left: 10, bottom: 10, right: 10)
             }
             .ignoresSafeArea(.keyboard, edges: isFirstResponder ? .top : .bottom)
             .toolbar {
@@ -33,7 +31,6 @@ struct EnterTextScreen: View {
             .navigationTitle("Enter text")
             .navigationBarTitleDisplayMode(.inline)
         }
-        
     }
     
     private func closeView() {
